@@ -17,3 +17,14 @@ for name, model in ensembles:
 names.append(name)
 msg = "%s: %f (%f)" % (name, cv_results.mean(), cv_results.std())
 print(msg)
+
+# Compare Algorithms after Ensembles
+fig = plt.figure()
+fig.suptitle('Scaled Ensemble Algorithm Comparison')
+ax = fig.add_subplot(111)
+plt.boxplot(results)
+ax.set_xticklabels(names)
+plt.show()
+
+#We can probably do better, given that the ensemble techniques used the default parameters.
+#In the next file we will look at tuning the Gradient Boosting to further lift the performance.
