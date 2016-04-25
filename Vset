@@ -1,0 +1,15 @@
+#Prepare Validation Dataset
+# Split-out validation dataset
+array = dataset.values
+X = array[:,0:13]
+Y = array[:,13]
+validation_size = 0.20
+seed = 7
+X_train, X_validation, Y_train, Y_validation = cross_validation.train_test_split(X, Y,
+test_size=validation_size, random_state=seed)
+
+# Evaluate Algorithms: Baseline, Test options and evaluation metric
+num_folds = 10
+num_instances = len(X_train)
+seed = 7
+scoring = 'mean_squared_error'
