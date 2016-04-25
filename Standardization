@@ -21,3 +21,14 @@ for name, model in pipelines:
   names.append(name)
   msg = "%s: %f (%f)" % (name, cv_results.mean(), cv_results.std())
   print(msg)
+  
+# After Standardization compare again
+# Compare Algorithms
+fig = plt.figure()
+fig.suptitle('Scaled Algorithm Comparison')
+ax = fig.add_subplot(111)
+plt.boxplot(results)
+ax.set_xticklabels(names)
+plt.show()
+
+  
