@@ -1,0 +1,4 @@
+# Load dataset
+url = "https://goo.gl/sXleFv"
+names = ['CRIM', 'ZN', 'INDUS', 'CHAS', 'NOX', 'RM', 'AGE', 'DIS', 'RAD', 'TAX', 'PTRATIO', 'B', 'LSTAT', 'MEDV']
+dataset = pandas.read_csv(url, delim_whitespace=True, names=names)
