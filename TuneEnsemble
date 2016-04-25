@@ -1,0 +1,11 @@
+scaler = StandardScaler().fit(X_train)
+rescaledX = scaler.transform(X_train)
+param_grid = dict(n_estimators=numpy.array([50,100,150,200,250,300,350,400]))
+model = GradientBoostingRegressor(random_state=seed)
+kfold = cross_validation.KFold(n=num_instances, n_folds=num_folds, random_state=seed)
+grid = GridSearchCV(estimator=model, param_grid=param_grid, scoring=scoring, cv=kfold)
+grid_result = grid.fit(rescaledX, Y_train)
+
+print("Best: %f using %s" % (grid_result.best_score_, grid_result.best_params_))
+for params, mean_score, scores in grid_result.grid_scores_:
+  print("%f (%f) with: %r" % (scores.mean(), scores.std(), params))
