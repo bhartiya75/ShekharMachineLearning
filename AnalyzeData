@@ -1,0 +1,50 @@
+# shape
+print(dataset.shape)
+
+# types
+print(dataset.dtypes)
+
+# head
+print(dataset.head(20))
+
+# descriptions
+pandas.set_option('precision', 1)
+print(dataset.describe())
+
+# correlation
+pandas.set_option('precision', 2)
+print(dataset.corr(method='pearson'))
+
+# histograms
+dataset.hist(sharex=False, sharey=False, xlabelsize=1, ylabelsize=1)
+plt.show()
+
+# density
+dataset.plot(kind='density', subplots=True, layout=(4,4), sharex=False, legend=False,
+fontsize=1)
+plt.show()
+
+# box and whisker plots
+dataset.plot(kind='box', subplots=True, layout=(4,4), sharex=False, sharey=False,
+fontsize=8)
+plt.show()
+
+# scatter plot matrix
+scatter_matrix(dataset)
+plt.show()
+
+# correlation matrix
+fig = plt.figure()
+ax = fig.add_subplot(111)
+cax = ax.matshow(dataset.corr(), vmin=-1, vmax=1, interpolation='none')
+fig.colorbar(cax)
+ticks = numpy.arange(0,14,1)
+ax.set_xticks(ticks)
+ax.set_yticks(ticks)
+ax.set_xticklabels(names)
+ax.set_yticklabels(names)
+plt.show()
+
+
+
+
